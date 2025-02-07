@@ -5,6 +5,7 @@
 .App {
   text-align: center;
   position: relative;
+  top: 45px;
 }
 
 * {
@@ -19,22 +20,26 @@
 	--mainColorLight: #5767aa;
 	--secondaryColor: #db2b39;
 	--textColor: red;
+  --backgroundColor: black;
 }
 
 header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 80px;
+	height: 120px;
 	padding: 0 2rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
-  position: absolute; /* Position Navbar absolutely */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10; 
+  z-index: 10;
+  border-bottom: 3px solid var(--textColor); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
 }
+
 
 nav a {
 	margin: 0 1rem;
@@ -67,7 +72,7 @@ nav {
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {
 		visibility: visible;
-		opacity: 1;
+		opacity: 10;
 	}
 
 	header nav {
@@ -106,7 +111,7 @@ header .navbar-logo {
 }
 
 header .navbar-logo img {
-  padding-top: 10px;
+  padding-top: 3px;
   height: 150px; /* Adjust this value to fit the navbar height */
   width: 125px;  /* Maintain aspect ratio */
 }
@@ -174,6 +179,7 @@ header .navbar-logo img {
 /* Image Styles */
 .App-Img {
   position: relative;
+  top: -25px;
 }
 
 .App-Img-1 {
@@ -222,7 +228,7 @@ header .navbar-logo img {
   }
   .App-Img-1 {
     width: 100%;
-   height: 75vh;
+   height: 45vh;
   }
 }
 
@@ -479,6 +485,7 @@ main {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* General styles */
@@ -595,4 +602,83 @@ main {
     height: 325px;
     width: 103%;
   }
+
+  .elfsight-app-dbf89d42-7e82-41eb-9b5c-02d7e8918a50 {
+    padding-top: 25px;
+  }
 }
+
+.location-title h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.location-cards {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 20px; /* Space between the cards */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  padding: 20px; /* Add some padding around */
+}
+
+/* Make sure the cards are aligned next to each other in web view */
+.location-card-lv,
+.location-card-kn {
+  width: 300px; /* Set a fixed width for the cards in web view */
+  text-align: center; /* Center the text */
+}
+
+
+.location-card-img {
+  width: 100%; 
+  height: auto;
+  max-width: 250px; 
+  margin: 0 auto; 
+}
+
+
+@media (max-width: 768px) {
+  
+  .location-cards {
+      flex-direction: column; 
+      align-items: center; 
+  }
+
+  .location-card-lv,
+  .location-card-kn {
+      width: 80%; 
+      margin-bottom: 20px; 
+  }
+
+  
+  .location-card-img {
+      max-width: 100%;
+      height: 300px;
+  }
+}
+
+.location-card-text, .location-title h1{
+  font-weight: bold;
+  font-family: Archivo Black, sans-serif;
+}
+
+.location-title h1{
+  text-align: center;
+  font-size: 45px;
+}
+
+.location-card-text {
+  color: red;
+  font-size: 25px;
+}
+
+.barber-link {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+ html {
+   scroll-behavior: smooth;
+ }

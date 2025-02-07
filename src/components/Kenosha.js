@@ -1,14 +1,48 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 import Ken3 from './kenosha/ken3.jpg';
 
 export default function Kenosha() {
+    const location = useLocation(); 
+
+    useEffect(() => {
+        
+        if (location.hash) {
+            const section = document.querySelector(location.hash);
+            if (section) {
+                const offsetDesktop = 140; 
+                const offsetMobile = 115; 
+                const isMobile = window.innerWidth <= 768; 
+
+                
+                const top = section.getBoundingClientRect().top + window.pageYOffset;
+
+                
+                if (isMobile) {
+                    
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start', 
+                    });
+                    
+                    setTimeout(() => {
+                        window.scrollBy(0, -offsetMobile); 
+                    }, 300); 
+                } else {
+                
+                    window.scrollTo({ top: top - offsetDesktop, behavior: 'smooth' });
+                }
+            }
+        }
+    }, [location]);
+
     return (
         <div className='Kenosha'>
             <h1>Big Hit Kenosha</h1>
             <section className="image-section-kenosha">
                 <img src={Ken3} alt="Kenosha" />
             </section>
-            <h1>Meet the Barbers</h1>
+            <h1 id="barbers">The Barbers</h1>
 
             coming soon...
             <section className="barbers-section">
@@ -28,11 +62,7 @@ export default function Kenosha() {
                 </p>
                 <span className="info">Hours: </span>
                     <p className="hours">
-                    <span>Monday: 8:30am-5pm</span>
-                    <span>Tuesday: 8:30am-5pm</span>
-                    <span>Wednesday: 8:30am-5pm</span>
-                    <span>Thursday: 8:30am-5pm</span>
-                    <span>Friday: 8:30am-5pm</span>
+                    <span>Monday-Friday: 8:30am-5pm</span>
                     <span>Saturday: 8:30am-2pm</span>
                     <span>Sunday: Closed</span>
                     </p>
