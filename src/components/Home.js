@@ -1,6 +1,6 @@
 import React from 'react';
 import Img1 from './images/oldskool.jpg';
-import { BrowserRouter as  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import shopFront from './images/shopfront.jpg';
 import storeFront from './kenosha/storefront.jpg';
 
