@@ -60,7 +60,7 @@ export default function LasVegas() {
 
             <section id="contact" className="contact-section">
                 <h2>Contact Us</h2>
-                <div className="contact-grid">
+                <div className="contact-grid contact-grid--four">
                     <div className="contact-card">
                         <div className="contact-icon">
                             <i className="fas fa-map-marker-alt"></i>

@@ -1100,6 +1100,16 @@ main {
   margin: 0 auto;
 }
 
+@media (min-width: 769px) {
+  .contact-grid--four {
+    max-width: 1300px;
+  }
+
+  .contact-grid--four .contact-card {
+    flex: 0 1 260px;
+  }
+}
+
 .contact-card {
   flex: 0 1 280px;
   background: rgba(255, 255, 255, 0.05);
