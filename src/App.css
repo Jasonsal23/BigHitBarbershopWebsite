@@ -440,6 +440,69 @@ header .navbar-logo img:hover {
   box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
 }
 
+.footer-app-stores {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footer-app-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.footer-store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.store-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 1px solid #333333;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.store-button:hover {
+  border-color: #c41e3a;
+  background: linear-gradient(135deg, #333333 0%, #252525 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+}
+
+.store-icon {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.store-label {
+  color: #999999;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.store-name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .footer-bottom {
   border-top: 1px solid #333333;
   padding-top: 20px;
@@ -481,8 +544,15 @@ header .navbar-logo img:hover {
 /* Footer responsive styles */
 @media (max-width: 768px) {
   .footer-locations {
-    flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+  }
+
+  .footer-location h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-address {
+    font-size: 0.8rem;
   }
 
   .footer-content {
@@ -495,6 +565,30 @@ header .navbar-logo img:hover {
 
   .footer-link {
     font-size: 0.8rem;
+  }
+
+  .footer-store-buttons {
+    gap: 10px;
+  }
+
+  .store-button {
+    padding: 8px 12px;
+  }
+
+  .store-icon {
+    font-size: 1.5rem;
+  }
+
+  .store-label {
+    font-size: 0.55rem;
+  }
+
+  .store-name {
+    font-size: 0.9rem;
+  }
+
+  .footer-app-text {
+    font-size: 1rem;
   }
 }
 
@@ -852,7 +946,7 @@ main {
 /* Barbers Section */
 .barbers-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 20px 40px 60px;
   background-color: #ffffff;
@@ -861,6 +955,7 @@ main {
 }
 
 .coming-soon {
+  grid-column: 1 / -1;
   text-align: center;
   padding: 60px 40px;
   color: #999999;
@@ -881,7 +976,6 @@ main {
 
 .barber-card {
   width: 100%;
-  max-width: 300px;
   text-align: center;
   border-radius: 16px;
   overflow: hidden;
@@ -998,14 +1092,16 @@ main {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .contact-card {
+  flex: 0 1 280px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -1146,9 +1242,6 @@ main {
 
 /* Responsive Contact/Reviews/Map */
 @media (max-width: 1024px) {
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
@@ -1166,11 +1259,11 @@ main {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .contact-card {
+    flex: 1 1 100%;
     padding: 30px 20px;
   }
 
