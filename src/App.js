@@ -19,7 +19,10 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Only scroll to top if there's no hash (let hash navigation handle its own scrolling)
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   return (
