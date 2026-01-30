@@ -22,24 +22,24 @@ export default function Home() {
         <div className="location-cards">
     <div className="location-card-lv">
         <Link to="/lasvegas">
-            <img src={shopFront} alt="Las Vegas Shop Front" className="location-card-img" />
+            <img src={shopFront} alt="Las Vegas Shop Front" className="location-card-img" loading="lazy" />
         </Link>
-        <br />
         <p className="location-card-text">Big Hit Las Vegas</p>
-        <p>5651 S Grand Canyon Dr Suite 105, Las Vegas, NV 89148</p>
-        <p>(702) 675-6448</p>
-        <Link to="/lasvegas#barbers" className="barber-link">Barbers</Link>
+        <div className="location-card-buttons">
+            <Link to="/lasvegas#barbers" className="barber-link">Barbers</Link>
+            <Link to="/lasvegas#contact" className="barber-link">Contact</Link>
+        </div>
     </div>
-    
+
     <div className="location-card-kn">
         <Link to="/kenosha">
-            <img src={storeFront} alt="Kenosha Store Front" className="location-card-img" />
+            <img src={storeFront} alt="Kenosha Store Front" className="location-card-img" loading="lazy" />
         </Link>
-        <br />
         <p className="location-card-text">Big Hit Kenosha</p>
-        <p>6011 39th Ave, Kenosha, WI 53142</p>
-        <p>(262) 657-5055</p>
-        <Link to="/kenosha#barbers" className="barber-link">Barbers</Link>
+        <div className="location-card-buttons">
+            <Link to="/kenosha#barbers" className="barber-link">Barbers</Link>
+            <Link to="/kenosha#contact" className="barber-link">Contact</Link>
+        </div>
     </div>
 </div>
         

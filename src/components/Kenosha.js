@@ -10,28 +10,14 @@ export default function Kenosha() {
         if (location.hash) {
             const section = document.querySelector(location.hash);
             if (section) {
-                const offsetDesktop = 140; 
-                const offsetMobile = 115; 
-                const isMobile = window.innerWidth <= 768; 
+                const offsetDesktop = 140;
+                const offsetMobile = 120;
+                const isMobile = window.innerWidth <= 768;
 
-                
                 const top = section.getBoundingClientRect().top + window.pageYOffset;
+                const offset = isMobile ? offsetMobile : offsetDesktop;
 
-                
-                if (isMobile) {
-                    
-                    section.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start', 
-                    });
-                    
-                    setTimeout(() => {
-                        window.scrollBy(0, -offsetMobile); 
-                    }, 300); 
-                } else {
-                
-                    window.scrollTo({ top: top - offsetDesktop, behavior: 'smooth' });
-                }
+                window.scrollTo({ top: top - offset, behavior: 'smooth' });
             }
         }
     }, [location]);
@@ -43,39 +29,54 @@ export default function Kenosha() {
                 <img src={Ken3} alt="Kenosha" />
             </section>
             <h1 id="barbers">The Barbers</h1>
-
-            coming soon...
             <section className="barbers-section">
-            </section>
-
-            <section className="about-section">
-            <h2>Contact Us</h2>
-                <p>
-                    <span className="info">Address: </span>
-                    <a href="https://www.google.com/maps/place/Big+Hit+Barber+Shop/@42.5805883,-87.8551098,15z/data=!4m6!3m5!1s0x88055e27f7f616f3:0xd1e29a9f9428a9d8!8m2!3d42.5805883!4d-87.8551098!16s%2Fg%2F1262fw8d6?entry=ttu&g_ep=EgoyMDI0MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
-                        6011 39th Ave, Kenosha, WI 53142
-                    </a>
-                </p>
-                <p>
-                    <span className="info">Phone: </span>
-                    <a href="tel:(262) 657-5055"> (262) 657-5055</a>
-                </p>
-                <span className="info">Hours: </span>
-                    <p className="hours">
-                    <span>Monday-Friday: 8:30am-5pm</span>
-                    <span>Saturday: 8:30am-2pm</span>
-                    <span>Sunday: Closed</span>
-                    </p>
-            </section>
-
-            <div className="map">
-                    
-                <iframe
-                    title="Kenosha Map"
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=6011%2039th%20Ave,%20Kenosha,%20WI%2053142+(big%20hit%20barbershop)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                 <a href="https://www.gps.ie/">gps vehicle tracker</a>
-                 </iframe>
+                <div className="coming-soon">
+                    <i className="fas fa-scissors"></i>
+                    <p>Coming Soon...</p>
                 </div>
+            </section>
+
+            <section id="contact" className="contact-section">
+                <h2>Contact Us</h2>
+                <div className="contact-grid">
+                    <div className="contact-card">
+                        <div className="contact-icon">
+                            <i className="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Address</h3>
+                        <a href="https://www.google.com/maps/place/Big+Hit+Barber+Shop/@42.5805883,-87.8551098,15z" target="_blank" rel="noopener noreferrer">
+                            6011 39th Ave<br />Kenosha, WI 53142
+                        </a>
+                    </div>
+                    <div className="contact-card">
+                        <div className="contact-icon">
+                            <i className="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <a href="tel:2626575055">(262) 657-5055</a>
+                    </div>
+                    <div className="contact-card">
+                        <div className="contact-icon">
+                            <i className="fas fa-clock"></i>
+                        </div>
+                        <h3>Hours</h3>
+                        <p>Mon-Fri: 8:30am-5pm</p>
+                        <p>Saturday: 8:30am-2pm</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="map-section">
+                <h2>Find Us</h2>
+                <div className="map-container">
+                    <iframe
+                        title="Kenosha Map"
+                        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=6011%2039th%20Ave,%20Kenosha,%20WI%2053142+(Big%20Hit%20Barbershop)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </section>
         </div>
     )
 }
