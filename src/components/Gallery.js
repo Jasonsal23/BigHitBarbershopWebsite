@@ -2,10 +2,12 @@ import React from 'react';
 import { galleryImages, bookingUrls } from '../data/barbers';
 
 export default function Gallery() {
-    const handleClick = (barber) => {
-        const url = bookingUrls[barber];
-        if (url) {
-            window.open(url, '_blank');
+    const handleClick = (image) => {
+        if (image.barber === 'BH') {
+            window.location.href = '/lasvegas#barbers';
+        } else {
+            const url = bookingUrls[image.barber];
+            if (url) window.open(url, '_blank');
         }
     };
 
@@ -16,7 +18,7 @@ export default function Gallery() {
                     <div
                         className="galleryItem"
                         key={index}
-                        onClick={() => handleClick(image.barber)}
+                        onClick={() => handleClick(image)}
                         style={{ cursor: 'pointer' }}
                     >
                         <img src={image.src} alt={image.alt} loading="lazy" />

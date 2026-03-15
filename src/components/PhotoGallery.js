@@ -1,40 +1,119 @@
 import React, { useState, useEffect } from 'react';
-import Shop1 from './images/shop1.jpg';
-import Shop2 from './images/shop2.jpg';
-import Shop3 from './images/shop3.jpg';
-import Ken1 from './kenosha/ken1.jpg';
-import Ken2 from './kenosha/ken2.jpg';
-import Ken3 from './kenosha/ken3.jpg';
-import Ken4 from './kenosha/ken4.jpg';
+import BH2 from './2026_Pics/BH-2.jpg';
+import BH5 from './2026_Pics/BH-5.jpg';
+import BH8 from './2026_Pics/BH-8.jpg';
+import BH11 from './2026_Pics/BH-11.jpg';
+import BH23 from './2026_Pics/BH-23.jpg';
+import BH19 from './2026_Pics/BH-19.jpg';
+import BH26 from './2026_Pics/BH-26.jpg';
+import BH29 from './2026_Pics/BH-29.jpg';
+import BH4 from './2026_Pics/BH-4.jpg';
+import BH10 from './2026_Pics/BH-10.jpg';
 
+const images = [BH2, BH4, BH5, BH8, BH10, BH11, BH23, BH19, BH26, BH29];
 
-const images = [
-    Shop1
-    ,Shop2
-    ,Shop3
-    ,Ken1
-    ,Ken2
-    ,Ken3
-    ,Ken4
+const positions = [
+    'center 20%', // BH2
+    'center 30%', // BH4
+    'center top', // BH5
+    'center 30%', // BH8
+    'center 25%', // BH10
+    'center 50%', // BH11
+    'center 20%', // BH23
+    'center 30%', // BH19
+    'center 30%', // BH26
+    'center 20%', // BH29
+];
+
+const mobilePositions = [
+    'center top', // BH2
+    'center top', // BH4
+    'center top', // BH5
+    'center top', // BH8
+    'center top', // BH10
+    'center top', // BH11
+    'center top', // BH23
+    'center top', // BH19
+    'center top', // BH26
+    'center top', // BH29
 ];
 
 const PhotoGallery = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 1024px)').matches);
+
+    // Two persistent image slots — each always stays in the DOM (no remounting).
+    // The "top" slot fades from opacity 1 → 0, revealing the "bottom" slot beneath.
+    // When the fade finishes, we update the now-invisible top slot with a new image
+    // while it's completely covered by the opaque bottom slot — the src swap is invisible.
+    // Then roles swap: old bottom becomes new top, old top (reloaded) becomes new bottom.
+    const [slots, setSlots] = useState({
+        a: { idx: 0, opacity: 1 },
+        b: { idx: 1, opacity: 1 }, // preloaded below slot A, covered by it
+        topSlot: 'a',
+        nextImg: 2,
+    });
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); 
-
-        return () => clearInterval(interval); 
+        const mq = window.matchMedia('(max-width: 1024px)');
+        const handler = (e) => setIsMobile(e.matches);
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
     }, []);
 
+    useEffect(() => {
+        let timeoutId;
+        const interval = setInterval(() => {
+            // Step 1: fade out the top slot
+            setSlots(s => ({
+                ...s,
+                [s.topSlot]: { ...s[s.topSlot], opacity: 0 },
+            }));
+
+            timeoutId = setTimeout(() => {
+                // Step 2: swap roles and reload the now-hidden slot with the next image.
+                // The opacity 0→1 reset on the old top fires as a CSS transition,
+                // but it's invisible because it's covered by the new top (opacity 1, z-index 1).
+                setSlots(s => {
+                    const newTop = s.topSlot === 'a' ? 'b' : 'a';
+                    const oldTop = s.topSlot;
+                    return {
+                        ...s,
+                        [oldTop]: { idx: s.nextImg, opacity: 1 },
+                        topSlot: newTop,
+                        nextImg: (s.nextImg + 1) % images.length,
+                    };
+                });
+            }, 1000);
+        }, 5000);
+
+        return () => { clearInterval(interval); clearTimeout(timeoutId); };
+    }, []);
+
+    const activePositions = isMobile ? mobilePositions : positions;
+
     return (
-        
-        <div className="photo-gallery">
-            <img src={images[currentIndex]} alt="Gallery" />
+        <div className="slideshow-container">
+            <img
+                src={images[slots.a.idx]}
+                alt="Big Hit Barbershop"
+                className="slideshow-img"
+                style={{
+                    opacity: slots.a.opacity,
+                    zIndex: slots.topSlot === 'a' ? 1 : 0,
+                    objectPosition: activePositions[slots.a.idx],
+                }}
+            />
+            <img
+                src={images[slots.b.idx]}
+                alt="Big Hit Barbershop"
+                className="slideshow-img"
+                style={{
+                    opacity: slots.b.opacity,
+                    zIndex: slots.topSlot === 'b' ? 1 : 0,
+                    objectPosition: activePositions[slots.b.idx],
+                }}
+            />
         </div>
-        
     );
 };
 

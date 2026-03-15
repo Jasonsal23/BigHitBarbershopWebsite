@@ -1,14 +1,14 @@
 import React from 'react';
-import Img1 from './images/oldskool.jpg';
 import { Link } from 'react-router-dom';
 import shopFront from './images/shopfront.jpg';
 import storeFront from './kenosha/storefront.jpg';
+import PhotoGallery from './PhotoGallery';
 
 export default function Home() {
     return (
         <div>
            <div className="App-Img">
-          <img src={Img1} alt="Img1" className="App-Img-1" />
+          <PhotoGallery />
           <div className="photo-text">
             <h1>Big Hit Barbershop</h1>
             <p>Industry Leading Barbershop</p>
@@ -42,8 +42,8 @@ export default function Home() {
         </div>
     </div>
 </div>
-        
-        
+
+
         </div>
     );
 }

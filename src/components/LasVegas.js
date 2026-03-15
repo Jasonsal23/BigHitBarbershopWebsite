@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Shop1 from './images/shop1.jpg';
+import BH30 from './2026_Pics/BH-30.jpg';
 import { lasVegasBarbers } from '../data/barbers';
 
 export default function LasVegas() {
@@ -39,13 +39,13 @@ export default function LasVegas() {
         <div className="las-vegas">
             <h1>Big Hit Las Vegas</h1>
             <section className="image-section">
-                <img src={Shop1} alt="Las Vegas" />
+                <img src={BH30} alt="Las Vegas" />
             </section>
             <h1 id="barbers">The Barbers</h1>
             <section className="barbers-section">
                 {lasVegasBarbers.map((barber, index) => (
                     <div className="barber-card" key={index}>
-                        <img src={barber.imgSrc} alt={barber.name} className="barber-image" loading="lazy" />
+                        <img src={barber.imgSrc} alt={barber.name} className="barber-image" loading="lazy" style={barber.imgPosition ? { objectPosition: barber.imgPosition } : undefined} />
                         <div className="barber-info">
                             <h2>{barber.name}</h2>
                             <p>{barber.title}</p>
