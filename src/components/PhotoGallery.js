@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import BH2 from './2026_Pics/BH-2.jpg';
-import BH5 from './2026_Pics/BH-5.jpg';
 import BH8 from './2026_Pics/BH-8.jpg';
 import BH11 from './2026_Pics/BH-11.jpg';
 import BH23 from './2026_Pics/BH-23.jpg';
@@ -10,12 +9,11 @@ import BH29 from './2026_Pics/BH-29.jpg';
 import BH4 from './2026_Pics/BH-4.jpg';
 import BH10 from './2026_Pics/BH-10.jpg';
 
-const images = [BH2, BH4, BH5, BH8, BH10, BH11, BH23, BH19, BH26, BH29];
+const images = [BH2, BH4, BH8, BH10, BH11, BH23, BH19, BH26, BH29];
 
 const positions = [
     'center 20%', // BH2
     'center 30%', // BH4
-    'center top', // BH5
     'center 30%', // BH8
     'center 25%', // BH10
     'center 50%', // BH11
@@ -28,7 +26,6 @@ const positions = [
 const mobilePositions = [
     'center top', // BH2
     'center top', // BH4
-    'center top', // BH5
     'center top', // BH8
     'center top', // BH10
     'center top', // BH11

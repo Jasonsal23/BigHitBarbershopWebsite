@@ -971,7 +971,8 @@ main {
 /* Barbers Section */
 .barbers-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
   gap: 30px;
   padding: 20px 40px 60px;
   background-color: #ffffff;
@@ -1337,6 +1338,12 @@ main {
 
   .barber-card {
     max-width: 100%;
+  }
+
+  .barbers-section .barber-card:last-child:nth-child(2n+1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 7.5px);
   }
 
   .barber-image {
