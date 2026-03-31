@@ -652,8 +652,8 @@ main {
 
 .back-to-top-btn {
   position: fixed;
-  bottom: 50px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
+  bottom: 50px;
+  left: 20px;
   background-color: #333; /* Button background color */
   color: #fff; /* Button text color */
   border: none;
