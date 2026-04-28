@@ -111,6 +111,12 @@ export default function Footer() {
           <p className="footer-copyright">
             {currentYear} Big Hit Barbershop. All Rights Reserved.
           </p>
+          <p className="footer-credit">
+            Website designed by{" "}
+            <a href="https://builtbyjason.dev" target="_blank" rel="noopener noreferrer" className="footer-credit-link">
+              Built by Jason
+            </a>
+          </p>
         </div>
       </div>
     </footer>

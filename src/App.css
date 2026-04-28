@@ -565,6 +565,22 @@ header .navbar-logo img:hover {
   margin: 0;
 }
 
+.footer-credit {
+  color: #555555;
+  font-size: 0.75rem;
+  margin: 6px 0 0;
+}
+
+.footer-credit-link {
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-credit-link:hover {
+  color: #ffffff;
+}
+
 /* Footer responsive styles */
 @media (max-width: 768px) {
   .footer-locations {
