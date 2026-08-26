@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import Ken3 from './kenosha/ken3.jpg';
+import { kenoshaBarbers } from '../data/barbers';
 
 export default function Kenosha() {
     const location = useLocation(); 
@@ -29,11 +30,24 @@ export default function Kenosha() {
                 <img src={Ken3} alt="Kenosha" />
             </section>
             <h1 id="barbers">The Barbers</h1>
-            <section className="barbers-section">
-                <div className="coming-soon">
-                    <i className="fas fa-scissors"></i>
-                    <p>Coming Soon...</p>
-                </div>
+            <section className="barbers-section barbers-section--kenosha">
+                {kenoshaBarbers.map((barber, index) => (
+                    <div className="barber-card barber-card--no-photo" key={index}>
+                        <div className="barber-avatar-placeholder">
+                            <i className="fas fa-scissors"></i>
+                        </div>
+                        <div className="barber-info">
+                            <h2>{barber.name}</h2>
+                            <p>{barber.title}</p>
+                            {barber.instagram && (
+                                <a href={`https://instagram.com/${barber.instagram}`} target="_blank" rel="noopener noreferrer" className="instagram-link">
+                                    <i className="fab fa-instagram"></i> {barber.instagram}
+                                </a>
+                            )}
+                            <a href={barber.appointment} target="_blank" rel="noreferrer noopener" className="book-appointment">Reserve Your Appointment</a>
+                        </div>
+                    </div>
+                ))}
             </section>
 
             <section id="contact" className="contact-section">

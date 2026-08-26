@@ -93,6 +93,17 @@ export const lasVegasBarbers = [
     },
 ];
 
+// Kenosha booking (Booksy — no per-barber booking links available, all barbers share this page)
+export const kenoshaBookingUrl = 'https://booksy.com/en-us/408993_big-hit-barbershop_barber-shop_39844_kenosha';
+
+// Kenosha barbers
+export const kenoshaBarbers = [
+    { name: 'Jess', title: 'Barber', instagram: '_jessthebarberxo', appointment: kenoshaBookingUrl },
+    { name: "De'Eric", title: 'Barber', appointment: kenoshaBookingUrl },
+    { name: 'Mike (Lorenzo)', title: 'Barber', instagram: 'lorenzo_dabarber', appointment: kenoshaBookingUrl },
+    { name: 'Lyndsey C.', title: 'Barber', instagram: 'lyndsey_bighit', appointment: kenoshaBookingUrl },
+];
+
 // Gallery images with descriptive alt text
 export const galleryImages = [
     { src: BH, barber: 'BH', alt: 'Big Hit Barbershop - photo 1' },
