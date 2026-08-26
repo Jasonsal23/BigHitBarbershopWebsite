@@ -7,8 +7,15 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Big Hit Barbershop offers premium haircuts, beard trims, and grooming services in Las Vegas, NV and Kenosha, WI. Book an appointment or walk in today."
     />
+    <meta property="og:title" content="Big Hit Barbershop" />
+    <meta
+      property="og:description"
+      content="Premium haircuts, beard trims, and grooming services in Las Vegas, NV and Kenosha, WI."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.bighitbarbershop.com" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,7 +31,42 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Big Hit Barbershop</title>
+    <title>Big Hit Barbershop | Las Vegas, NV & Kenosha, WI</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BarberShop",
+            "name": "Big Hit Barbershop - Las Vegas",
+            "url": "https://www.bighitbarbershop.com/lasvegas",
+            "telephone": "+1-702-675-6448",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5651 S Grand Canyon Dr Suite 105",
+              "addressLocality": "Las Vegas",
+              "addressRegion": "NV",
+              "postalCode": "89148",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "BarberShop",
+            "name": "Big Hit Barbershop - Kenosha",
+            "url": "https://www.bighitbarbershop.com/kenosha",
+            "telephone": "+1-262-657-5055",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "6011 39th Ave",
+              "addressLocality": "Kenosha",
+              "addressRegion": "WI",
+              "postalCode": "53142",
+              "addressCountry": "US"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

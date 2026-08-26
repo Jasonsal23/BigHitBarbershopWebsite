@@ -80,8 +80,8 @@ const PhotoGallery = () => {
                         nextImg: (s.nextImg + 1) % images.length,
                     };
                 });
-            }, 1000);
-        }, 5000);
+            }, 2000);
+        }, 9000);
 
         return () => { clearInterval(interval); clearTimeout(timeoutId); };
     }, []);
@@ -91,6 +91,7 @@ const PhotoGallery = () => {
     return (
         <div className="slideshow-container">
             <img
+                key={`a-${slots.a.idx}`}
                 src={images[slots.a.idx]}
                 alt="Big Hit Barbershop"
                 className="slideshow-img"
@@ -101,6 +102,7 @@ const PhotoGallery = () => {
                 }}
             />
             <img
+                key={`b-${slots.b.idx}`}
                 src={images[slots.b.idx]}
                 alt="Big Hit Barbershop"
                 className="slideshow-img"
@@ -110,6 +112,11 @@ const PhotoGallery = () => {
                     objectPosition: activePositions[slots.b.idx],
                 }}
             />
+            <div className="slideshow-counter" aria-hidden="true">
+                <span className="slideshow-counter-current">{String(slots[slots.topSlot].idx + 1).padStart(2, '0')}</span>
+                <span className="slideshow-counter-divider"></span>
+                <span className="slideshow-counter-total">{String(images.length).padStart(2, '0')}</span>
+            </div>
         </div>
     );
 };

@@ -10,11 +10,19 @@ export default function Home() {
            <div className="App-Img">
           <PhotoGallery />
           <div className="photo-text">
+            <p className="hero-trust">
+              <i className="fas fa-star" aria-hidden="true"></i>
+              <i className="fas fa-star" aria-hidden="true"></i>
+              <i className="fas fa-star" aria-hidden="true"></i>
+              <i className="fas fa-star" aria-hidden="true"></i>
+              <i className="fas fa-star" aria-hidden="true"></i>
+              <span>6&times; Best of Las Vegas</span>
+            </p>
             <h1>Big Hit Barbershop</h1>
-            <p>Industry Leading Barbershop</p>
-            {/*<Link to="/lasvegas" className="transparent-button">Las Vegas</Link>
-            <Link to="/kenosha" className="transparent-button">Kenosha</Link>*/}
+            <p>An Elevated Grooming Experience</p>
+            <Link to="/lasvegas#barbers" className="hero-cta">Reserve Your Appointment</Link>
           </div>
+          <i className="fas fa-chevron-down scroll-cue" aria-hidden="true"></i>
         </div>
         <div className="location-title">
         <h1>Locations</h1>
@@ -27,6 +35,7 @@ export default function Home() {
         <p className="location-card-text">Big Hit Las Vegas</p>
         <div className="location-card-buttons">
             <Link to="/lasvegas#barbers" className="barber-link">Barbers</Link>
+            <Link to="/lasvegas#pricing" className="barber-link">Pricing</Link>
             <Link to="/lasvegas#contact" className="barber-link">Contact</Link>
         </div>
     </div>

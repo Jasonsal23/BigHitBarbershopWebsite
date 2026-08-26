@@ -1,7 +1,23 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import BH30 from './2026_Pics/BH-30.jpg';
+import Groupbh from './2026_Pics/groupbh.png';
 import { lasVegasBarbers } from '../data/barbers';
+
+const lasVegasServices = [
+    { name: 'Regular Cut', price: '$35' },
+    { name: 'Special Cut', description: 'Long hair styles, afros, cuts that demand more time', price: '$40' },
+    { name: 'Senior Cut', price: '$28' },
+    { name: 'Kids Cut', price: '$33' },
+    { name: 'Beard Trim w/Cut', price: '$46' },
+    { name: 'Specialty Cut', price: '$52' },
+    { name: 'Beard Trim', price: '$30' },
+    { name: 'Line Up', price: '$25' },
+    { name: 'Line Up w/Beard Trim', price: '$40' },
+    { name: 'Head Shave', description: 'Foil shaver', price: '$25' },
+    { name: 'Head Shave w/Beard Trim', price: '$40' },
+    { name: 'Design', price: 'Starting at $7' },
+    { name: 'Big Hit Skip the Line', price: '$100' },
+];
 
 export default function LasVegas() {
     const location = useLocation(); 
@@ -39,7 +55,7 @@ export default function LasVegas() {
         <div className="las-vegas">
             <h1>Big Hit Las Vegas</h1>
             <section className="image-section">
-                <img src={BH30} alt="Las Vegas" />
+                <img src={Groupbh} alt="Las Vegas" />
             </section>
             <h1 id="barbers">The Barbers</h1>
             <section className="barbers-section">
@@ -52,10 +68,26 @@ export default function LasVegas() {
                             <a href={`https://instagram.com/${barber.instagram}`} target="_blank" rel="noopener noreferrer" className="instagram-link">
                                 <i className="fab fa-instagram"></i> {barber.instagram}
                             </a>
-                            <a href={barber.appointment} target="_blank" rel="noreferrer noopener" className="book-appointment">Book Appointment</a>
+                            <a href={barber.appointment} target="_blank" rel="noreferrer noopener" className="book-appointment">Reserve Your Appointment</a>
                         </div>
                     </div>
                 ))}
+            </section>
+
+            <h1 id="pricing">Services & Pricing</h1>
+            <section className="pricing-section">
+                <div className="pricing-grid">
+                    {lasVegasServices.map((service, index) => (
+                        <div className="pricing-card" key={index}>
+                            <div className="pricing-card-header">
+                                <h3>{service.name}</h3>
+                                <span className="pricing-card-price">{service.price}</span>
+                            </div>
+                            {service.description && <p>{service.description}</p>}
+                        </div>
+                    ))}
+                </div>
+                <p className="pricing-note">Prices may vary with each barber.</p>
             </section>
 
             <section id="contact" className="contact-section">
