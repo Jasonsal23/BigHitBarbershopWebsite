@@ -24,6 +24,7 @@ import BH27 from '../components/2026_Pics/BH-27.jpg';
 import BH28 from '../components/2026_Pics/BH-28.jpg';
 import BH29 from '../components/2026_Pics/BH-29.jpg';
 import BH30 from '../components/2026_Pics/BH-30.jpg';
+import Rome from '../components/barbers/rome.jpg';
 
 
 // Gallery images
@@ -65,6 +66,7 @@ export const bookingUrls = {
     Shawn: 'https://getsquire.com/booking/book/big-hit-barbershop-las-vegas-las-vegas/barber/shawn-lievense/services',
     Nick: 'https://getsquire.com/booking/book/big-hit-barbershop-las-vegas-las-vegas/barber/nick-excell/services',
     Adam: 'https://getsquire.com/booking/book/big-hit-barbershop-las-vegas-las-vegas/barber/adam-patino/services',
+    Rome: 'https://getsquire.com/booking/book/big-hit-barbershop-las-vegas-las-vegas/barber/rome-mendez/services',
 };
 
 // Las Vegas barbers
@@ -90,6 +92,14 @@ export const lasVegasBarbers = [
         imgSrc: BH2,
         instagram: 'cutzby_patino',
         appointment: bookingUrls.Adam
+    },
+    {
+        name: 'Rome M.',
+        title: 'Luxury Barber',
+        imgSrc: Rome,
+        imgPosition: 'center 15%',
+        instagram: 'precisionbyrome',
+        appointment: bookingUrls.Rome
     },
 ];
 

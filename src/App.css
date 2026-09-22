@@ -1138,7 +1138,7 @@ main {
 /* Barbers Section */
 .barbers-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   gap: 30px;
   padding: 20px 40px 60px;
@@ -1529,6 +1529,9 @@ main {
 
 /* Responsive Contact/Reviews/Map */
 @media (max-width: 1024px) {
+  .barbers-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
